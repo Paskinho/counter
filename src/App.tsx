@@ -39,8 +39,8 @@ function App() {
           incDisable={incDisable}
           resDisable={resDisable}
       />
-        <Button  ButtonCallBack={incrCurrent}  className={"incr"} name={"incr"}/>
-        <Button  ButtonCallBack={buttonReset} className={"reset"} name={"reset"}/>
+        <Button  incDisable={(current === 5) ? true : false} ButtonCallBack={incrCurrent}  className={"incr"} name={"incr"}/>
+        <Button  incDisable={(current === 0) ? true : false} ButtonCallBack={buttonReset} className={"reset"} name={"reset"}/>
     </div>
   );
 }
