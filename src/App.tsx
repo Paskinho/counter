@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Counter} from "./Counter";
+import {Counter} from "./components/Counter";
 import {Button} from "./components/Button";
 
 
@@ -39,7 +39,7 @@ function App() {
           incDisable={incDisable}
           resDisable={resDisable}
       />
-        <Button ButtonCallBack={incrCurrent} className={"incr"} name={"incr"}/>
+        <Button ButtonCallBack={incrCurrent}  className={"incr"} name={"incr"}/>
         <Button ButtonCallBack={buttonReset} className={"reset"} name={"reset"}/>
     </div>
   );
