@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Counter} from "./Counter";
+import {Button} from "./components/Button";
+
 
 function App() {
+
+    const [incDisable, setIncDisable] = useState<boolean>(false)
+    const [resDisable, setResDisable] = useState<boolean>(true)
+
+    const startValue: number = 0
+    const MaxValue: number = 5
+    const [current, setCurrent] = useState<number>(startValue)
+
+    const incrCurrent = () => {
+        if (current < MaxValue) {
+            return setCurrent(current + 1);
+        }
+        if(current === MaxValue) {
+            setIncDisable(true)
+            setResDisable(false)
+        }
+    }
+
+
+    const buttonReset = () => {
+        setCurrent(startValue)
+    }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter
+          current={current}
+      incrCurrent={incrCurrent}
+      buttonReset={buttonReset}
+          incDisable={incDisable}
+          resDisable={resDisable}
+      />
+        <Button ButtonCallBack={incrCurrent} className={"incr"} name={"incr"}/>
+        <Button ButtonCallBack={buttonReset} className={"reset"} name={"reset"}/>
     </div>
   );
 }
