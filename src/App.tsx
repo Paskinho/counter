@@ -28,8 +28,6 @@ function App() {
         setCurrent(startValue)
     }
 
-
-
   return (
     <div className="App">
       <Counter
