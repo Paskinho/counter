@@ -27,7 +27,8 @@ export const Counter = (props: CurrentType) => {
     // const startValue: number = 0
 
     const CurrentClassName = (props.current === 5) ? `table tableBlock` : "table"
-    const Message = (props.current === 5) ? `${props.current} - red` : props.current
+    const Message = (props.current === 5) ? props.current : props.current
+
     // const [value, dispatchValue]=useReducer(countReducer, 0)
 
     // const setLocalStorage = ()=> {
