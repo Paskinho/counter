@@ -15,11 +15,11 @@
 }
 
 .incr {
-  color: black;
+  color: purple;
 }
 
 .reset {
-  color: black;
+  color: red;
 }
 
 .table { border: solid 2px #462905;
@@ -33,9 +33,18 @@
 
 }
 
-.button {
+.table.tableBlock { border: solid 2px #462905;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 30px;
+  background-color: cyan;
+  height: 30px;
+  font-family: "Calisto MT";
+  font-style: italic;
   color: red
+
 }
+
 
 
 

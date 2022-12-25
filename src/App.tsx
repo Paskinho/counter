@@ -39,6 +39,7 @@ function App() {
           incDisable={incDisable}
           resDisable={resDisable}
       />
+
         <Button  incDisable={(current === MaxValue)} ButtonCallBack={incrCurrent}  className={"incr"} name={"incr"}/>
         <Button  incDisable={(current === startValue)} ButtonCallBack={buttonReset} className={"reset"} name={"reset"}/>
     </div>
