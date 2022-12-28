@@ -72,11 +72,7 @@ function App() {
             <Button incDisable={(current === startValue)}
                     ButtonCallBack={buttonReset}
                     className={"reset"}
-                    name={"reset"}
-                    setToLocalStorageHandler={setToLocalStorageHandler}
-                    getFromLocalHandler={getFromLocalHandler}
-                    clearLocalStorageHandler={clearLocalStorage}
-                    removeItemFromLocalStorageHandler={removeItemFromLocalStorage}/>
+                    name={"reset"}/>
         </div>
     );
 }

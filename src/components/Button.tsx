@@ -5,10 +5,10 @@ type ButtonType = {
     className: string
     name: string
     incDisable: boolean
-    setToLocalStorageHandler: () => void
-    getFromLocalHandler: ()=> void
-    clearLocalStorageHandler: ()=> void
-    removeItemFromLocalStorageHandler: ()=> void
+    setToLocalStorageHandler?: () => void
+    getFromLocalHandler?: ()=> void
+    clearLocalStorageHandler?: ()=> void
+    removeItemFromLocalStorageHandler?: ()=> void
 
 }
 
