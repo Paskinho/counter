@@ -7,7 +7,8 @@ type ButtonType = {
     incDisable: boolean
     setToLocalStorageHandler: () => void
     getFromLocalHandler: ()=> void
-
+    clearLocalStorageHandler: ()=> void
+    removeItemFromLocalStorageHandler: ()=> void
 
 }
 
@@ -20,8 +21,10 @@ export const Button = (props: ButtonType) => {
             disabled={props.incDisable}>
                 {props.name}
             </button>
-            <button onClick={props.setToLocalStorageHandler}></button>
-            <button onClick={props.getFromLocalHandler}></button>
+            <button onClick={props.setToLocalStorageHandler}>setToLocalStorage</button>
+            <button onClick={props.getFromLocalHandler}>getFromLocal</button>
+            <button onClick={props.clearLocalStorageHandler}>clearLocalStorage</button>
+            <button onClick={props.removeItemFromLocalStorageHandler}>removeItemFromLocalStorage</button>
         </div>
     );
 
