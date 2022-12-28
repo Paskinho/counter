@@ -5,6 +5,9 @@ type ButtonType = {
     className: string
     name: string
     incDisable: boolean
+    setToLocalStorageHandler: () => void
+    getFromLocalHandler: ()=> void
+
 
 }
 
@@ -17,6 +20,8 @@ export const Button = (props: ButtonType) => {
             disabled={props.incDisable}>
                 {props.name}
             </button>
+            <button onClick={props.setToLocalStorageHandler}></button>
+            <button onClick={props.getFromLocalHandler}></button>
         </div>
     );
 

@@ -28,6 +28,14 @@ function App() {
         setCurrent(startValue)
     }
 
+    const setToLocalStorageHandler = () => {
+
+    }
+    const getFromLocalHandler = () => {
+
+    }
+
+
   return (
     <div className="App">
       <Counter
@@ -38,8 +46,18 @@ function App() {
           resDisable={resDisable}
       />
 
-        <Button  incDisable={(current === MaxValue)} ButtonCallBack={incrCurrent}  className={"incr"} name={"incr"}/>
-        <Button  incDisable={(current === startValue)} ButtonCallBack={buttonReset} className={"reset"} name={"reset"}/>
+        <Button  incDisable={(current === MaxValue)}
+                 ButtonCallBack={incrCurrent}
+                 className={"incr"}
+                 name={"incr"}
+                 setToLocalStorageHandler={setToLocalStorageHandler}
+        getFromLocalHandler={getFromLocalHandler}/>
+        <Button  incDisable={(current === startValue)}
+                 ButtonCallBack={buttonReset}
+                 className={"reset"}
+                 name={"reset"}
+                 setToLocalStorageHandler={setToLocalStorageHandler}
+                 getFromLocalHandler={getFromLocalHandler}/>
     </div>
   );
 }
