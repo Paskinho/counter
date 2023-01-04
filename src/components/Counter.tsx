@@ -1,4 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useReducer, useState} from 'react';
+import s from "./CounterSetting.module.css";
+import {CounterSetting} from "./CounterSetting";
 
 // const countReducer = (state: number, action: any): number => {
 //     switch (action.type) {
@@ -38,6 +40,9 @@ export const Counter = (props: CurrentType) => {
     return (
         <div className={CurrentClassName}>
             {Message}
+            <div className={s.CounterSetting}>
+                <CounterSetting/>
+            </div>
         </div>
     );
 }

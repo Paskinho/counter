@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Counter} from "./components/Counter";
 import {Button} from "./components/Button";
+import {CounterSetting} from "./components/CounterSetting";
+import s from './components/CounterSetting.module.css'
 
 
 function App() {
@@ -67,6 +69,7 @@ function App() {
                     ButtonCallBack={buttonReset}
                     className={"reset"}
                     name={"reset"}/>
+
         </div>
     );
 }
