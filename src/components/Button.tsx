@@ -4,7 +4,8 @@ type ButtonType = {
     ButtonCallBack: () => void
     className: string
     name: string
-    incDisable: boolean
+    incDisable?: boolean
+    resDisable?: boolean
     setToLocalStorageHandler?: () => void
     getFromLocalHandler?: ()=> void
     clearLocalStorageHandler?: ()=> void
@@ -12,7 +13,7 @@ type ButtonType = {
 
 }
 
-export const ButtonIncr = (props: ButtonType) => {
+export const Button = (props: ButtonType) => {
 
     return (
         <div className="button">
@@ -21,23 +22,7 @@ export const ButtonIncr = (props: ButtonType) => {
             disabled={props.incDisable}>
                 {props.name}
             </button>
-            <button onClick={props.setToLocalStorageHandler}>setToLocalStorage</button>
-            <button onClick={props.getFromLocalHandler}>getFromLocal</button>
-            <button onClick={props.clearLocalStorageHandler}>clearLocalStorage</button>
-            <button onClick={props.removeItemFromLocalStorageHandler}>removeItemFromLocalStorage</button>
         </div>
     );
 
-}
-export const ButtonReset = (props: ButtonType) => {
-
-    return (
-        <div className="button">
-            <button className={props.className}
-                    onClick={props.ButtonCallBack}
-                    disabled={props.incDisable}>
-                {props.name}
-            </button>
-        </div>
-    );
 }

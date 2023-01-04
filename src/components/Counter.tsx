@@ -18,8 +18,8 @@ type CurrentType = {
     current: number
     incrCurrent: (current: number) => void
     buttonReset: (current: number) => void
-    incDisable: boolean
-    resDisable: boolean
+    incDisable?: boolean
+    resDisable?: boolean
 }
 
 

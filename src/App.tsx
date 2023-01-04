@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./components/Counter";
-import { ButtonIncr, ButtonReset} from "./components/Button";
+import {Button} from "./components/Button";
 
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
             setIncDisable(true)
             setResDisable(false)
         }
+        setToLocalStorageHandler()
     }
 
 
@@ -41,14 +42,6 @@ function App() {
         }
     }
 
-    const clearLocalStorage = () => {
-        localStorage.clear()
-        setCurrent(0)
-    }
-
-   const removeItemFromLocalStorage = ()=> {
-        localStorage.removeItem('counterValue' + 1)
-    }
 
 
     return (
@@ -61,15 +54,11 @@ function App() {
                 resDisable={resDisable}
             />
 
-            <ButtonIncr incDisable={(current === MaxValue)}
+            <Button incDisable={(current === MaxValue)}
                     ButtonCallBack={incrCurrent}
                     className={"incr"}
-                    name={"incr"}
-                    setToLocalStorageHandler={setToLocalStorageHandler}
-                    getFromLocalHandler={getFromLocalHandler}
-                    clearLocalStorageHandler={clearLocalStorage}
-                    removeItemFromLocalStorageHandler={removeItemFromLocalStorage}/>
-            <ButtonReset incDisable={(current === startValue)}
+                    name={"incr"}/>
+            <Button incDisable={(current === startValue)} //нужно resDisable
                     ButtonCallBack={buttonReset}
                     className={"reset"}
                     name={"reset"}/>
