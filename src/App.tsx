@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Counter} from "./components/Counter";
 import {Button} from "./components/Button";
@@ -13,6 +13,16 @@ function App() {
     const MaxValue: number = 5
     const [current, setCurrent] = useState<number>(startValue)
 
+
+    useEffect(()=>{
+        getFromLocalHandler()
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem('counterValue', JSON.stringify(current))
+        },[current]
+    )
+
     const incrCurrent = () => {
         if (current < MaxValue) {
             return setCurrent(current + 1);
@@ -21,7 +31,6 @@ function App() {
             setIncDisable(true)
             setResDisable(false)
         }
-        setToLocalStorageHandler()
     }
 
 
@@ -29,11 +38,7 @@ function App() {
         setCurrent(startValue)
     }
 
-    const setToLocalStorageHandler = () => {
-        localStorage.setItem('counterValue', JSON.stringify(current))
-        localStorage.setItem('counterValue' + 1,JSON.stringify(current + 1) )
 
-    }
     const getFromLocalHandler = () => {
         let valueAsString = localStorage.getItem('counterValue');
         if (valueAsString) {
