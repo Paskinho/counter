@@ -12,7 +12,7 @@ type ButtonType = {
 
 }
 
-export const Button = (props: ButtonType) => {
+export const ButtonIncr = (props: ButtonType) => {
 
     return (
         <div className="button">
@@ -29,4 +29,15 @@ export const Button = (props: ButtonType) => {
     );
 
 }
+export const ButtonReset = (props: ButtonType) => {
 
+    return (
+        <div className="button">
+            <button className={props.className}
+                    onClick={props.ButtonCallBack}
+                    disabled={props.incDisable}>
+                {props.name}
+            </button>
+        </div>
+    );
+}

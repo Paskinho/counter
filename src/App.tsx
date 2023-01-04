@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./components/Counter";
-import {Button} from "./components/Button";
+import { ButtonIncr, ButtonReset} from "./components/Button";
 
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
                 resDisable={resDisable}
             />
 
-            <Button incDisable={(current === MaxValue)}
+            <ButtonIncr incDisable={(current === MaxValue)}
                     ButtonCallBack={incrCurrent}
                     className={"incr"}
                     name={"incr"}
@@ -69,7 +69,7 @@ function App() {
                     getFromLocalHandler={getFromLocalHandler}
                     clearLocalStorageHandler={clearLocalStorage}
                     removeItemFromLocalStorageHandler={removeItemFromLocalStorage}/>
-            <Button incDisable={(current === startValue)}
+            <ButtonReset incDisable={(current === startValue)}
                     ButtonCallBack={buttonReset}
                     className={"reset"}
                     name={"reset"}/>
