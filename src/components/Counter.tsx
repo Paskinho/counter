@@ -17,9 +17,7 @@ import {CounterSetting} from "./CounterSetting";
 
 
 type CurrentType = {
-    current: number
-    incrCurrent: (current: number) => void
-    buttonReset: (current: number) => void
+    current?: number
     incDisable?: boolean
     resDisable?: boolean
 }
@@ -41,7 +39,7 @@ export const Counter = (props: CurrentType) => {
         <div className={CurrentClassName}>
             {Message}
             <div className={s.CounterSetting}>
-                <CounterSetting/>
+                {/*<CounterSetting/>*/}
             </div>
         </div>
     );

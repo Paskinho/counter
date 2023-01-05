@@ -55,10 +55,8 @@ function App() {
         <div className="App">
             <Counter
                 current={current}
-                incrCurrent={incrCurrent}
-                buttonReset={buttonReset}
-                incDisable={incDisable}
-                resDisable={resDisable}
+                // incDisable={incDisable}
+                // resDisable={resDisable}
             />
 
             <Button incDisable={(current === MaxValue)}
