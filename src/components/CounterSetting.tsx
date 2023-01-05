@@ -5,21 +5,29 @@ type CounterSettingType = {
 }
 
 export const CounterSetting = (props: CounterSettingType) => {
-    const [maxValue,setMaxValue] = useState<number>(20)
-
+    const [currentValue,setCurrentValue] = useState<number>(20)
+    const startValue = 0
     // const maxValueForCounter = setMaxValue(10)
 
     const MaxNumberForCounter = () => {
-        let startValue = 0
-        if (startValue < 0) {
+
+        if (currentValue < 0) {
             return "error"
         }
-        return startValue + 1
+        return setCurrentValue (currentValue + 1)
+    }
+
+    const MinNumberForCounter = () => {
+
+        if (currentValue < 0) {
+            return "error"
+        }
+        return setCurrentValue (currentValue + 1)
     }
 
     return <div>
-        <input onChange={MaxNumberForCounter}/>
-        <input onChange={MaxNumberForCounter}/>
+        <button onClick={MaxNumberForCounter}/>
+        <button onClick={MinNumberForCounter}/>
 
     </div>
 }
