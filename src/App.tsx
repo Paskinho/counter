@@ -58,7 +58,6 @@ function App() {
                 // incDisable={incDisable}
                 // resDisable={resDisable}
             />
-
             <Button incDisable={(current === MaxValue)}
                     ButtonCallBack={incrCurrent}
                     className={"incr"}

@@ -39,7 +39,7 @@ export const Counter = (props: CurrentType) => {
         <div className={CurrentClassName}>
             {Message}
             <div className={s.CounterSetting}>
-                {/*<CounterSetting/>*/}
+                <CounterSetting/>
             </div>
         </div>
     );
