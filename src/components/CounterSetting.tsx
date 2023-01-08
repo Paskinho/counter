@@ -26,8 +26,8 @@ export const CounterSetting = (props: CounterSettingType) => {
     }
 
     return <div>
-        <button onClick={MaxNumberForCounter}/>
-        <button onClick={MinNumberForCounter}/>
+        <input onChange={MaxNumberForCounter}/>
+        <input onChange={MinNumberForCounter}/>
 
     </div>
 }

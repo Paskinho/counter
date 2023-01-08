@@ -6,7 +6,11 @@ import {CounterSetting} from "./components/CounterSetting";
 import s from './components/CounterSetting.module.css'
 
 
+
+
 function App() {
+
+    const [state, setState] = useState<StateType>(startValue: 0)
 
     const [incDisable, setIncDisable] = useState<boolean>(false)
     const [resDisable, setResDisable] = useState<boolean>(true)
