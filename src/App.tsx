@@ -7,7 +7,7 @@ import s from './components/CounterSetting.module.css'
 
 
 
-type StateType = {
+export type StateType = {
     startValue: number,
     maxValue: number,
     current: number
@@ -64,6 +64,7 @@ function App() {
     return (
         <div className="App">
             <Counter
+                state={state}
                 current={state.current}
                 // incDisable={incDisable}
                 // resDisable={resDisable}
