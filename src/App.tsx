@@ -43,7 +43,7 @@ function App() {
 
     const incrCurrent = () => {
         if (state.current < state.maxValue) {
-            return state.current + 1;
+            return setState({...state,current: state.current + 1, error: ''});
         }
         if (state.current === state.maxValue) {
             setIncDisable(true)
