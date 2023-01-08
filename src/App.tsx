@@ -5,19 +5,22 @@ import {Button} from "./components/Button";
 import {CounterSetting} from "./components/CounterSetting";
 import s from './components/CounterSetting.module.css'
 
-
+type StateType = {
+    startValue: number,
+    maxValue: number,
+    current: number
+}
 
 
 function App() {
 
-    const [state, setState] = useState<StateType>(startValue: 0)
+    const [state, setState] = useState<StateType>({startValue: 0,maxValue: 5, current: 0} )
 
     const [incDisable, setIncDisable] = useState<boolean>(false)
     const [resDisable, setResDisable] = useState<boolean>(true)
 
-    const startValue: number = 0
-    const MaxValue: number = 5
-    const [current, setCurrent] = useState<number>(startValue)
+
+
 
 
     useEffect(()=>{
@@ -25,15 +28,15 @@ function App() {
     },[])
 
     useEffect(()=>{
-        localStorage.setItem('counterValue', JSON.stringify(current))
-        },[current]
+        localStorage.setItem('counterValue', JSON.stringify(state.current))
+        },[state.current]
     )
 
     const incrCurrent = () => {
-        if (current < MaxValue) {
-            return setCurrent(current + 1);
+        if (state.current < state.MaxValue) {
+            return state.setCurrent(state.current + 1);
         }
-        if (current === MaxValue) {
+        if (state.current === state.MaxValue) {
             setIncDisable(true)
             setResDisable(false)
         }
@@ -41,7 +44,7 @@ function App() {
 
 
     const buttonReset = () => {
-        setCurrent(startValue)
+        state.setCurrent(state.startValue)
     }
 
 
@@ -49,7 +52,7 @@ function App() {
         let valueAsString = localStorage.getItem('counterValue');
         if (valueAsString) {
             let newValue = JSON.parse(valueAsString)
-            setCurrent(newValue)
+            state.setCurrent(newValue)
         }
     }
 
@@ -58,15 +61,15 @@ function App() {
     return (
         <div className="App">
             <Counter
-                current={current}
+                current={state.current}
                 // incDisable={incDisable}
                 // resDisable={resDisable}
             />
-            <Button incDisable={(current === MaxValue)}
+            <Button incDisable={(state.current === state.MaxValue)}
                     ButtonCallBack={incrCurrent}
                     className={"incr"}
                     name={"incr"}/>
-            <Button incDisable={(current === startValue)} //нужно resDisable
+            <Button incDisable={(state.current === state.startValue)} //нужно resDisable
                     ButtonCallBack={buttonReset}
                     className={"reset"}
                     name={"reset"}/>
