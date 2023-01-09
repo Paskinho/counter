@@ -26,7 +26,8 @@ type CurrentType = {
     setEditMode: (isEditMode: boolean)=> void
     setMinValue: (value: number)=> void
     setMaxValue: (value: number)=> void
-
+    incrCurrent: ()=> void
+    buttonReset: ()=> void
 }
 
 
@@ -56,8 +57,8 @@ export const Counter = (props: CurrentType) => {
                 state={props.state}
                 isEditMode={props.state.isEditMode}
                 setEditMode={props.setEditMode}
-                incrCurrent={props.incDisable}
-                buttonReset={props.}
+                incrCurrent={props.incrCurrent}
+                buttonReset={props.buttonReset}
                 />
             </div>
         </div>

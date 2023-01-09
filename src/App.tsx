@@ -42,6 +42,13 @@ function App() {
         },[state]
     )
 
+    const incrCurrent = () => {
+        state.current<state.maxValue && setState({...state, current: state.current+1, error: ''})
+    }
+
+    const buttonReset = () => {
+        setState({...state, current: state.startValue, error:''})
+    }
 
 
     const setEditMode = (isEditMode: boolean) => {
@@ -71,6 +78,8 @@ function App() {
                 setEditMode={setEditMode}
                 setMinValue={setMinValue}
                 setMaxValue={setMaxValue}
+                incrCurrent={incrCurrent}
+                buttonReset={buttonReset}
                 // incDisable={incDisable}
                 // resDisable={resDisable}
             />
