@@ -2,14 +2,9 @@ import React from "react";
 
 type ButtonType = {
     ButtonCallBack: () => void
-    className: string
+    className?: string
     name: string
-    incDisable?: boolean
-    resDisable?: boolean
-    setToLocalStorageHandler?: () => void
-    getFromLocalHandler?: ()=> void
-    clearLocalStorageHandler?: ()=> void
-    removeItemFromLocalStorageHandler?: ()=> void
+    disable?: boolean
 
 }
 
@@ -19,7 +14,7 @@ export const Button = (props: ButtonType) => {
         <div className="button">
             <button className={props.className}
                     onClick={props.ButtonCallBack}
-            disabled={props.incDisable}>
+            disabled={props.disable}>
                 {props.name}
             </button>
         </div>

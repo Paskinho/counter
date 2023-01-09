@@ -1,33 +1,30 @@
-import React, {useState} from "react";
+import React, {ChangeEvent, useState} from "react";
+import {StateType} from "../App";
 
 type CounterSettingType = {
-
+    state: StateType
+    setEditMode: (isEditMode: boolean)=> void
+    setMinValue: (value: number) => void
+    setMaxValue: (value: number) => void
 }
 
-export const CounterSetting = (props: CounterSettingType) => {
-    const [currentValue,setCurrentValue] = useState<number>(20)
-    const startValue = 0
-    // const maxValueForCounter = setMaxValue(10)
+export const CounterSetting: React.FC<CounterSettingType> = (props)  => {
 
-    const MaxNumberForCounter = () => {
-
-        if (currentValue < 0) {
-            return "error"
-        }
-        return setCurrentValue (currentValue + 1)
+    const MaxNumberForCounter = (e:ChangeEvent<HTMLInputElement>) => {
+        props.setMaxValue(+e.currentTarget.value)
     }
 
-    const MinNumberForCounter = () => {
-
-        if (currentValue < 0) {
-            return "error"
-        }
-        return setCurrentValue (currentValue + 1)
+    const MinNumberForCounter = (e:ChangeEvent<HTMLInputElement>) => {
+        props.setMinValue(+e.currentTarget.value)
     }
 
     return <div>
-        <input onChange={MaxNumberForCounter}/>
-        <input onChange={MinNumberForCounter}/>
+        <div>
+        <input onChange={MaxNumberForCounter} value={props.state.maxValue}/>
+        </div>
+        <div>
+            <input onChange={MinNumberForCounter} value={props.state.startValue}/>
+        </div>
 
     </div>
 }

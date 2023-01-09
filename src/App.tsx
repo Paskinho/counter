@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Counter} from "./components/Counter";
-import {Button} from "./components/Button";
-import {CounterSetting} from "./components/CounterSetting";
+
 import s from './components/CounterSetting.module.css'
 
 
@@ -10,17 +9,19 @@ import s from './components/CounterSetting.module.css'
 export type StateType = {
     startValue: number,
     maxValue: number,
-    current: number
-    error: string
+    current: number,
+    error: string,
+    isEditMode: boolean
+
 }
 
 
 function App() {
 
-    const [state, setState] = useState<StateType>({startValue: 0,maxValue: 5, current: 0, error: ""} )
+    const [state, setState] = useState<StateType>({startValue: 0,maxValue: 5, current: 0, error: "", isEditMode: false} )
 
-    const [incDisable, setIncDisable] = useState<boolean>(false)
-    const [resDisable, setResDisable] = useState<boolean>(true)
+    // const [incDisable, setIncDisable] = useState<boolean>(false)
+    // const [resDisable, setResDisable] = useState<boolean>(true)
 
 
 
@@ -41,42 +42,39 @@ function App() {
         },[state]
     )
 
-    const incrCurrent = () => {
-        if (state.current < state.maxValue) {
-            return setState({...state,current: state.current + 1, error: ''});
-        }
-        if (state.current === state.maxValue) {
-            setIncDisable(true)
-            setResDisable(false)
-        }
+
+
+    const setEditMode = (isEditMode: boolean) => {
+        setState({...state, isEditMode: !isEditMode})
     }
 
-
-    const buttonReset = () => {
-        setState({...state, current: state.startValue, error: ""})
+    const setMinValue = (startValue: number) => {
+        if (startValue >= 0 && startValue < state.maxValue ) {
+            return setState({...state, startValue: startValue, current: startValue, error: ""})
+        }
+        return setState({...state,startValue, current: state.startValue, error: "Incorrect value!!!"})
     }
 
+    const setMaxValue = (maxValue: number) => {
+        if (state.startValue >= 0 && maxValue > state.startValue)  {
+            return setState({...state, startValue: maxValue, current: state.startValue, error: ""})
+        }
 
-
-
+        return setState({...state,maxValue, current: state.startValue, error: "Incorrect value!!!"})
+    }
 
 
     return (
         <div className="App">
             <Counter
                 state={state}
-                current={state.current}
+                setEditMode={setEditMode}
+                setMinValue={setMinValue}
+                setMaxValue={setMaxValue}
                 // incDisable={incDisable}
                 // resDisable={resDisable}
             />
-            <Button incDisable={(state.current === state.maxValue)}
-                    ButtonCallBack={incrCurrent}
-                    className={"incr"}
-                    name={"incr"}/>
-            <Button incDisable={(state.current === state.startValue)} //нужно resDisable
-                    ButtonCallBack={buttonReset}
-                    className={"reset"}
-                    name={"reset"}/>
+
 
         </div>
     );

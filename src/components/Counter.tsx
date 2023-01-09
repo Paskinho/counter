@@ -2,6 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useReducer, useState} from 'react';
 import s from "./CounterSetting.module.css";
 import {CounterSetting} from "./CounterSetting";
 import { StateType } from '../App';
+import ButtonsCounter from "./ButtonsCounter";
 
 // const countReducer = (state: number, action: any): number => {
 //     switch (action.type) {
@@ -22,6 +23,10 @@ type CurrentType = {
     incDisable?: boolean
     resDisable?: boolean
     state: StateType
+    setEditMode: (isEditMode: boolean)=> void
+    setMinValue: (value: number)=> void
+    setMaxValue: (value: number)=> void
+
 }
 
 
@@ -41,7 +46,19 @@ export const Counter = (props: CurrentType) => {
         <div className={CurrentClassName}>
             {Message}
             <div className={s.CounterSetting}>
-                <CounterSetting/>
+                <CounterSetting
+                state={props.state}
+                setEditMode={props.setEditMode}
+                setMinValue={props.setMinValue}
+                setMaxValue={props.setMaxValue}
+                />
+                <ButtonsCounter
+                state={props.state}
+                isEditMode={props.state.isEditMode}
+                setEditMode={props.setEditMode}
+                incrCurrent={props.incDisable}
+                buttonReset={props.}
+                />
             </div>
         </div>
     );
