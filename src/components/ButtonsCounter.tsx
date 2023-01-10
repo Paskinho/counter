@@ -18,6 +18,12 @@ const ButtonsCounter: React.FC<ButtonsCounterType> = (props) => {
 
     return (
         <div>
+            {props.isEditMode ?
+                <div>
+                <Button ButtonCallBack={buttonSet} name={'SET'}/>
+                </div>
+                :
+                <div>
             <Button disable={(props.state.current === props.state.maxValue)}
                     ButtonCallBack={props.incrCurrent}
                     className={"incr"}
@@ -26,8 +32,11 @@ const ButtonsCounter: React.FC<ButtonsCounterType> = (props) => {
                     ButtonCallBack={props.buttonReset}
                     className={"reset"}
                     name={"RESET"}/>
+
             <Button ButtonCallBack={buttonSet}
                     name={"SET"}/>
+                </div>
+            }
         </div>
     );
 };
