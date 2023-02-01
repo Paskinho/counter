@@ -32,9 +32,9 @@ export const CounterSetting: React.FC<CounterSettingType> = (props)  => {
     // const inputMinClass = classFunc();
 
     return <div>
-        <div>
+        <div className={s.text}>
             Max. Value:
-            <input onChange={MaxNumberForCounter} value={props.state.maxValue}/>
+            <input className={s.input} onChange={MaxNumberForCounter} value={props.state.maxValue}/>
         </div>
         <div>
             Min. Value:

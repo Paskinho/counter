@@ -22,15 +22,18 @@
   color: red;
 }
 
-.table { border: solid 2px #462905;
+.table {
+  border: solid 2px #b1a10b;
   border-radius: 10px;
   padding: 10px;
   font-size: 30px;
-  background-color: cyan;
+  background-color: #0cd7a7;
   height: 30px;
   font-family: "Calisto MT";
   font-style: italic;
-
+display: flex;
+  height: 200px;
+  justify-content: center;
 }
 
 .table.tableBlock { border: solid 2px #462905;
