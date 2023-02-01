@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button} from "./Button";
 import {StateType} from "../App";
+import s from "./ButtonsCounter.module.css"
 
 type ButtonsCounterType = {
     state: StateType
@@ -20,20 +21,22 @@ const ButtonsCounter: React.FC<ButtonsCounterType> = (props) => {
         <div>
             {props.isEditMode ?
                 <div>
-                <Button ButtonCallBack={buttonSet} name={'SET'}/>
+                <Button className={s.button} ButtonCallBack={buttonSet} name={'SET'}/>
                 </div>
                 :
                 <div>
             <Button disable={(props.state.current === props.state.maxValue)}
                     ButtonCallBack={props.incrCurrent}
-                    className={"incr"}
+                    className={s.button}
                     name={"INCR"}/>
             <Button disable={(props.state.current === props.state.startValue)} //нужно resDisable
                     ButtonCallBack={props.buttonReset}
-                    className={"reset"}
+                    className={s.button}
                     name={"RESET"}/>
 
-            <Button ButtonCallBack={buttonSet}
+            <Button
+                className={s.button}
+                ButtonCallBack={buttonSet}
                     name={"SET"}/>
                 </div>
             }

@@ -3,11 +3,6 @@
 }
 
 .text {
-display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.input {
-
+    height: 30px;
+    font-size: 20px;
 }
