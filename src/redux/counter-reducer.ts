@@ -20,7 +20,10 @@ const initialState: InitialStateType = {
 
 
 export const counterReducer = (action: ActionsType)=> {
-
+    switch (action.type) {
+        case "INCREMENT-CURRENT-VALUE":{
+        }
+    }
 }
 
 export type ActionsType = incrCurrentValueActionType
