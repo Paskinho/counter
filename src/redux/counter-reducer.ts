@@ -16,3 +16,17 @@ const initialState: InitialStateType = {
     error: "error",
     isEditMode: true
 }
+
+
+
+export const counterReducer = ()=> {
+
+}
+
+export type ActionsType = incrCurrentActionType ;
+
+export type incrCurrentActionType = {
+    type: "INCREMENT-CURRENT-VALUE",
+    maxValue: number,
+    current: number
+}
