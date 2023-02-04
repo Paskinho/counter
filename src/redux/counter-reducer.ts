@@ -19,7 +19,7 @@ const initialState: InitialStateType = {
 
 
 
-export const counterReducer = ()=> {
+export const counterReducer = (action: ActionsType)=> {
 
 }
 
@@ -55,3 +55,27 @@ export type setMaxValueActionType = {
     maxValue: number,
     current: number
 }
+
+
+export const incrCurrentAC = (maxValue: number, current: number): incrCurrentValueActionType => {
+    return {type: "INCREMENT-CURRENT-VALUE", maxValue: 5, current: current}
+}
+
+export const resetValueAC = ( current: number): resetValueActionType => {
+    return {type: "RESET-VALUE", current: current}
+}
+
+export const setEditModeAC = ( isEditMode: boolean): setEditModeActionType => {
+    return {type: "SET-EDT-MODE",  isEditMode: true}
+}
+
+export const setMinValueAC = ( startValue: number, current: number): setMinValueActionType => {
+    return {type: "SET-MIN-VALUE", startValue: 0, current: current}
+}
+
+export const setMaxValueAC = ( maxValue: number, current: number): setMaxValueActionType => {
+    return {type: "SET-MAX-VALUE", maxValue: 5, current: current}
+}
+
+
+
