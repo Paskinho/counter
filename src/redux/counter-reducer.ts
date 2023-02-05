@@ -1,4 +1,5 @@
 import React from "react";
+import {store} from "./store";
 
 type InitialStateType = {
     startValue: number,
@@ -19,10 +20,22 @@ const initialState: InitialStateType = {
 
 
 
-export const counterReducer = (action: ActionsType)=> {
+export const counterReducer = (state: InitialStateType = initialState,action: ActionsType): InitialStateType=> {
     switch (action.type) {
         case "INCREMENT-CURRENT-VALUE":{
+            const checkStartValue = state.current < state.maxValue;
+            return checkStartValue ?
+                {...state, current: state.current + 1, error: ""}
+                : {...state, error: "Incorrect Value"}
         }
+        case "RESET-VALUE" : {
+            return {...state, current: state.startValue, error:''}
+        }
+        case "SET-EDT-MODE": {
+            return {...state, isEditMode: action.isEditMode}
+        }
+        default:
+            return state;
     }
 }
 
@@ -36,10 +49,13 @@ export type incrCurrentValueActionType = {
     type: "INCREMENT-CURRENT-VALUE",
     maxValue: number,
     current: number
+    error: string
 }
 export type resetValueActionType = {
     type: "RESET-VALUE",
-    current: number
+    current: number,
+    error: string
+
 }
 
 export type setEditModeActionType = {
@@ -60,12 +76,12 @@ export type setMaxValueActionType = {
 }
 
 
-export const incrCurrentAC = (maxValue: number, current: number): incrCurrentValueActionType => {
-    return {type: "INCREMENT-CURRENT-VALUE", maxValue: 5, current: current}
+export const incrCurrentAC = (maxValue: number, current: number, error: string): incrCurrentValueActionType => {
+    return {type: "INCREMENT-CURRENT-VALUE", maxValue: 5, current: current, error: ""}
 }
 
-export const resetValueAC = ( current: number): resetValueActionType => {
-    return {type: "RESET-VALUE", current: current}
+export const resetValueAC = ( current: number, error: string): resetValueActionType => {
+    return {type: "RESET-VALUE", current: current, error: ""}
 }
 
 export const setEditModeAC = ( isEditMode: boolean): setEditModeActionType => {
