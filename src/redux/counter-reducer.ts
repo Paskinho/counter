@@ -34,6 +34,16 @@ export const counterReducer = (state: InitialStateType = initialState,action: Ac
         case "SET-EDT-MODE": {
             return {...state, isEditMode: action.isEditMode}
         }
+        case "SET-MIN-VALUE": {
+            const setMinValue = state.startValue >= 0 && state.startValue < state.maxValue
+            return setMinValue ? {...state, startValue: state.startValue, current: state.startValue, error: ""}
+                : {...state,startValue: action.startValue, current: state.startValue, error: "Incorrect value!!!"}
+        }
+        case "SET-MAX-VALUE": {
+                return  (state.startValue >= 0 && state.maxValue > state.startValue) ?
+                    {...state, startValue: state.maxValue, current: state.startValue, error: ""}
+            : {...state,maxValue: action.maxValue, current: state.startValue, error: "Incorrect value!!!"}
+        }
         default:
             return state;
     }
@@ -66,7 +76,8 @@ export type setEditModeActionType = {
 export type setMinValueActionType = {
     type: "SET-MIN-VALUE",
     startValue: number,
-    current: number
+    current: number,
+    error: string
 }
 
 export type setMaxValueActionType = {
@@ -88,8 +99,8 @@ export const setEditModeAC = ( isEditMode: boolean): setEditModeActionType => {
     return {type: "SET-EDT-MODE",  isEditMode: true}
 }
 
-export const setMinValueAC = ( startValue: number, current: number): setMinValueActionType => {
-    return {type: "SET-MIN-VALUE", startValue: 0, current: current}
+export const setMinValueAC = ( startValue: number, current: number, error: string): setMinValueActionType => {
+    return {type: "SET-MIN-VALUE", startValue: 0, current: current, error: ''}
 }
 
 export const setMaxValueAC = ( maxValue: number, current: number): setMaxValueActionType => {
